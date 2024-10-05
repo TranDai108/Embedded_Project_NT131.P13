@@ -23,10 +23,11 @@ namespace Health_Embedded_Monitoring_System_Project
             _mqttClient = factory.CreateMqttClient();
 
             var options = new MqttClientOptionsBuilder()
-                .WithClientId("WpfAppClient")  // Đặt tên cho client của bạn
+                .WithClientId(Guid.NewGuid().ToString())  // Đặt tên cho client của bạn
                 .WithTcpServer("d3339750ee4c4b2d9351cf54b5f358c6.s1.eu.hivemq.cloud", 8883)  // Đổi cổng thành 8883 nếu dùng TLS
                 .WithCredentials("SlayPanther", "123456789")  // Thay bằng tài khoản HiveMQ
-                .WithCleanSession()
+                .WithTls()
+                .WithCleanSession()             
                 .Build();
 
             _mqttClient.ConnectedAsync += async e =>
@@ -55,7 +56,7 @@ namespace Health_Embedded_Monitoring_System_Project
         private async Task SubscribeToTopicAsync()
         {
             var topicFilter = new MqttTopicFilterBuilder()
-                .WithTopic("your/topic")
+                .WithTopic("heart")
                 .Build();
 
             await _mqttClient.SubscribeAsync(topicFilter);
@@ -65,7 +66,7 @@ namespace Health_Embedded_Monitoring_System_Project
         private async void PublishButton_Click(object sender, RoutedEventArgs e)
         {
             var message = new MqttApplicationMessageBuilder()
-                .WithTopic("your/topic")
+                .WithTopic("heart")
                 .WithPayload(PublishTextBox.Text)
                 .WithQualityOfServiceLevel(MQTTnet.Protocol.MqttQualityOfServiceLevel.ExactlyOnce)
                 .Build();
