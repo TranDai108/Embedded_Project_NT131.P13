@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Health_Embedded_Monitoring_System_Project"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="900">
+        Title="MainWindow" Height="687.333" Width="900">
     <Grid>
         <!-- Main Grid with 2 Columns -->
         <Grid.ColumnDefinitions>
@@ -17,19 +17,15 @@
         </Grid.ColumnDefinitions>
 
         <!-- Left Panel -->
-        <StackPanel Background="#F0F4FF" Grid.Column="0" Margin="20">
-            <TextBlock FontSize="24" FontWeight="Bold" Foreground="#2B2D42" ><Run Text="Hello, "/><Run Language="vi-vn" Text="User"/><Run Text="!"/></TextBlock>
-            <TextBlock FontSize="14" Text="It’s time for your routine health checkup today!" Foreground="#6C757D" Margin="0,10,0,30" Height="47" Width="210" TextWrapping="WrapWithOverflow" />
-            <Border Background="White" Padding="15" CornerRadius="10">
-                <StackPanel Height="120">
-                    <TextBlock FontSize="16" FontWeight="Bold" Text="Fitness Tracker" Foreground="#2B2D42"/>
-                    <TextBlock FontSize="14" Text="Steps Taken" Foreground="#6C757D" Margin="0,5,0,0" />
-                    <TextBlock FontSize="24" FontWeight="Bold" Text="18751" Foreground="#007BFF"/>
-                </StackPanel>
-            </Border>
 
-            <!-- Fitness Tracker -->
-        </StackPanel>
+        <!-- Right Panel -->
+        <Border Background="#F0F4FF" Grid.Column="0" Margin="20" CornerRadius="5">
+            <Grid>
+                <TextBlock FontSize="24" FontWeight="Bold" Foreground="#2B2D42" Margin="37,172,46.333,326.667" HorizontalAlignment="Center" ><Run Text="Hello, "/><Run Language="vi-vn" Text="User"/><Run Text="!"/></TextBlock>
+                <TextBlock FontSize="14" Text="It's time for your routine health checkup today!" Foreground="#6C757D" Width="210" TextWrapping="WrapWithOverflow" Margin="3,204,2.333,279.667" />
+
+            </Grid>
+        </Border>
 
         <!-- Right Panel -->
         <Grid Grid.Column="1" Margin="20">
@@ -39,7 +35,7 @@
             </Grid.RowDefinitions>
 
             <!-- Health Metrics -->
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,0,20">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="348,10,0,10">
                 <Border Background="#E0F7FA" Padding="10" Width="100" Height="100" Margin="0,0,20,0" CornerRadius="10">
                     <StackPanel>
                         <TextBlock FontSize="14" Text="Heart Rate" Foreground="#00796B"/>
@@ -52,12 +48,6 @@
                         <TextBlock FontSize="20" FontWeight="Bold" Text="120 mmHg" Foreground="#C62828"/>
                     </StackPanel>
                 </Border>
-                <Border Background="#E8F5E9" Padding="10" Width="100" Height="100" Margin="0,0,20,0" CornerRadius="10">
-                    <StackPanel>
-                        <TextBlock FontSize="14" Text="Sleep" Foreground="#43A047"/>
-                        <TextBlock FontSize="20" FontWeight="Bold" Text="87 h" Foreground="#43A047"/>
-                    </StackPanel>
-                </Border>
             </StackPanel>
 
             <!-- Heart Rate Chart -->
@@ -66,6 +56,7 @@
                     <TextBlock FontSize="16" FontWeight="Bold" Text="Heart Rate" Foreground="#2B2D42"/>
                     <TextBlock FontSize="14" Text="95 BPM (Normal)" Foreground="#6C757D" Margin="0,10,0,10"/>
                     <!-- Placeholder for the chart -->
+                    <Rectangle Fill="#E0E0E0" Height="150" />
                     <Rectangle Fill="#E0E0E0" Height="150" />
                 </StackPanel>
             </Border>
