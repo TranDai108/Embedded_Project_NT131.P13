@@ -15,7 +15,33 @@
             <ColumnDefinition Width="5*" />
             <!-- Right Panel -->
         </Grid.ColumnDefinitions>
+        <TextBox Name="ReceivedDataTextBox" 
+                 HorizontalAlignment="Left" 
+                 Height="74" 
+                 Margin="37.667,20,0,0" 
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top" 
+                 Width="265" 
+                 IsReadOnly="True" 
+                 VerticalScrollBarVisibility="Auto" 
+                 Text="Received Data..." Grid.Column="1"/>
 
+        <!-- TextBox để nhập tin nhắn gửi tới MQTT -->
+        <TextBox Name="PublishTextBox" 
+                 HorizontalAlignment="Left" 
+                 Height="29" 
+                 Margin="37.667,99,0,0" 
+                 VerticalAlignment="Top" 
+                 Width="265" 
+                 Text="Enter your message here" Grid.Column="1"/>
+
+        <!-- Button để gửi tin nhắn qua MQTT -->
+        <Button Content="Publish" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="314.667,20,0,0" 
+                Width="56" 
+                Click="PublishButton_Click" Grid.Column="1"/>
         <!-- Left Panel -->
 
         <!-- Right Panel -->
@@ -35,7 +61,7 @@
             </Grid.RowDefinitions>
 
             <!-- Health Metrics -->
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="348,10,0,10">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="358,10,0,10">
                 <Border Background="#E0F7FA" Padding="10" Width="100" Height="100" Margin="0,0,20,0" CornerRadius="10">
                     <StackPanel>
                         <TextBlock FontSize="14" Text="Heart Rate" Foreground="#00796B"/>
@@ -61,5 +87,15 @@
                 </StackPanel>
             </Border>
         </Grid>
+        <TextBox x:Name="StatusBox" 
+            HorizontalAlignment="Left" 
+            Height="82" 
+            Margin="314.667,46,0,0" 
+            TextWrapping="Wrap" 
+            VerticalAlignment="Top" 
+            Width="57" 
+            IsReadOnly="True" 
+            VerticalScrollBarVisibility="Auto" 
+            Text="" Grid.Column="1"/>
     </Grid>
 </Window>
